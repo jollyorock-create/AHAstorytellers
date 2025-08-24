@@ -1,1 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHA Storytellers - Transformative Stories That Inspire</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #FF6B35;
+            --secondary: #2EC4B6;
+            --accent: #FF9F1C;
+            --dark: #2A2D34;
+            --light: #F8F9FA;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3d5b7d8b-9e3a-4f5d-ba6c-5e1d5b5e5b5e.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            background: var(--accent);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Stories Section */
+        .stories {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .story-card {
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .story-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .story-card:hover .story-image img {
+            transform: scale(1.1);
+        }
+        
+        .story-content {
+            padding: 25px;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .team-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">AHA Storytellers</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#stories">Stories</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transformative Stories That Inspire Change</h1>
+            <p>Where every story creates an AHA moment of discovery and transformation</p>
+            <a href="#contact" class="btn">Start Your Story Journey</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About AHA Storytellers</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6a8b1f1d-5c5f-4e0a-9b9a-7b1b1b1b1b1b.png" alt="Creative storytelling workshop with diverse participants sharing stories in a circle" onerror="this.style.display='none'; this.parentNode.style.background='var(--primary)'; this.parentNode.innerHTML='<div style=\'color:white;padding:40px;text-align:center;\'>About AHA Storytellers Image</div>'"/>
+                </div>
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>AHA Storytellers is dedicated to creating transformative storytelling experiences that inspire change, foster connection, and unlock new perspectives. We believe that every story has the power to create moments of profound insight and understanding.</p>
+                    <p>Founded in 2015, we've helped thousands of individuals and organizations discover the power of their unique narratives.</p>
+                    <a href="#services" class="btn">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎤</div>
+                    <h3>Storytelling Workshops</h3>
+                    <p>Interactive workshops that teach the art of compelling storytelling for personal and professional growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📖</div>
+                    <h3>Corporate Storytelling</h3>
+                    <p>Helping businesses craft authentic narratives that connect with customers and inspire teams.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎭</div>
+                    <h3>Live Story Events</h3>
+                    <p>Curated storytelling performances and events that bring communities together through shared experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="stories">
+        <div class="container">
+            <h2 class="section-title">Featured Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7c8d9e0f-1a2b-3c4d-5e6f-7g8h9i0j1k2l.png" alt="Inspiring personal transformation story of overcoming challenges and finding purpose" onerror="this.style.display='none'; this.parentNode.style.background='var(--secondary)'; this.parentNode.innerHTML='<div style=\'color:white;padding:40px;text-align:center;\'>Transformation Story</div>'"/>
+                    </div>
+                    <div class="story-content">
+                        <h3>Journey to Purpose</h3>
+                        <p>A powerful story of self-discovery and finding one's true calling against all odds.</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3m4n5o6p-7q8r-9s0t-1u2v-3w4x5y6z7a8b.png" alt="Community building through shared stories and cultural exchange experiences" onerror="this.style.display='none'; this.parentNode.style.background='var(--accent)'; this.parentNode.innerHTML='<div style=\'color:white;padding:40px;text-align:center;\'>Community Story</div>'"/>
+                    </div>
+                    <div class="story-content">
+                        <h3>Building Bridges</h3>
+                        <p>How storytelling brought together diverse communities and created lasting connections.</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9c0d1e2f-3g4h-5i6j-7k8l-9m0n1o2p3q4r.png" alt="Innovative business storytelling that transformed company culture and customer engagement" onerror="this.style.display='none'; this.parentNode.style.background='var(--primary)'; this.parentNode.innerHTML='<div style=\'color:white;padding:40px;text-align:center;\'>Business Story</div>'"/>
+                    </div>
+                    <div class="story-content">
+                        <h3>Corporate Transformation</h3>
+                        <p>A case study of how authentic storytelling revolutionized a company's culture and brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5s6t7u8v-9w0x-1y2z-3a4b-5c6d7e8f9g0h.png" alt="Sarah Johnson - Founder and Lead Storyteller with warm smile and professional presence" onerror="this.style.display='none'; this.parentNode.style.background='var(--primary)'; this.parentNode.innerHTML='<div style=\'color:white;padding:20px;\'>Sarah Johnson</div>'"/>
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p>Founder & Lead Storyteller</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2i3j4k5l-6m7n-8o9p-0q1r-2s3t4u5v6w7x.png" alt="Michael Chen - Creative Director with innovative approach to storytelling techniques" onerror="this.style.display='none'; this.parentNode.style.background='var(--secondary)'; this.parentNode.innerHTML='<div style=\'color:white;padding:20px;\'>Michael Chen</div>'"/>
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p>Creative Director</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8y9z0a1b-2c3d-4e5f-6g7h-8i9j0k1l2m3n.png" alt="Maria Rodriguez - Workshop Facilitator with engaging teaching style and diverse background" onerror="this.style.display='none'; this.parentNode.style.background='var(--accent)'; this.parentNode.innerHTML='<div style=\'color:white;padding:20px;\'>Maria Rodriguez</div>'"/>
+                    </div>
+                    <h3>Maria Rodriguez</h3>
+                    <p>Workshop Facilitator</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4o5p6q7r-8s9t-0u1v-2w3x-4y5z6a7b8c9d.png" alt="David Kim - Digital Storytelling Specialist with technical expertise and creative vision" onerror="this.style.display='none'; this.parentNode.style.background='var(--primary)'; this.parentNode.innerHTML='<div style=\'color:white;padding:20px;\'>David Kim</div>'"/>
+                    </div>
+                    <h3>David Kim</h3>
+                    <p>Digital Storytelling Specialist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ready to Create Your AHA Moment?</h3>
+                    <p>We'd love to hear your story and help you craft narratives that inspire and transform.</p>
+                    <p><strong>Email:</strong> hello@ahastorytellers.com</p>
+                    <p><strong>Phone:</strong> (555) 123-STOR
 
